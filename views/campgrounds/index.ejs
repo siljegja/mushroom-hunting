@@ -1,0 +1,74 @@
+<% layout('layouts/boilerplate') %> 
+<!-- 
+    all content below is passed as 'body' to boilerplate 
+    template in views/layouts/boilerplate.ejs
+    - will render a page with the boilerplate as initial 
+      layout, with the content as this file inserted as 'body' 
+      in the boilerplate
+ -->
+
+<!-- Map -->
+<div id='cluster-map'></div>
+
+<h1>All Campgrounds</h1>
+
+<!-- Headline -->
+<div class="mb-2">
+    <a class="btn btn-primary mt-3" href="/campgrounds/new">Add campground</a>
+</div>
+
+<!-- Display preview of all campgrounds -->
+<% for(let campground of campgrounds) { %> 
+    <div class="card mb-3">
+        <div class="row">
+            <!-- Images to the left -->
+            <div class="col-md-4"> <!-- after size medium+, want to take up 4/12 units of the row -->
+                <%if(campground.images.length) {%> 
+                <img class="img-fluid" src="<%= campground.images[0].url %>" alt=""> <!-- display first image in images array -->
+                <% } else { %> 
+                    <img class="img-fluid" src="https://res.cloudinary.com/dmhlzrw28/image/upload/v1675781304/YelpCamp/lk9ukogikiv2vapyfsml.jpg" alt=""> <!-- display default image -->
+                <% } %>
+            </div>
+            <!-- Camp info to the right -->
+            <div class="col-md-8"> <!-- after size medium+, want to take up 8/12 units of the row -->
+                <div class="card-body">
+                    <h2 class="card-title"> <%= campground.title %> </h2>
+                    <p class="card-text"> <%= campground.description %>  </p>
+                    <p class="card-text">
+                        <small class="text-muted"><%= campground.location %></small>
+                    </p>
+                    <!-- Button to view the Camp - take you to the camp's page -->
+                    <a class="btn btn-primary" href="/campgrounds/<%= campground._id %>">View <%= campground.title %> </a>
+                </div>
+            </div>
+        </div>
+    </div>
+<% } %> 
+
+<!-- use ejs to create javascript variable mapToken that we can access in our js (clusterMap) -->
+<script>      
+    const mapToken = '<%-process.env.MAPBOX_TOKEN%>'
+    const campgrounds = {features: <%- JSON.stringify(campgrounds) %>} // mapbox expect data in an array under the key 'features'
+</script>      
+
+<!-- include js for the clusterMap -->
+<script src="/javascripts/clusterMap.js"></script>
+
+
+
+
+
+
+
+
+<!-- 
+display titles of all campgrounds
+- loops over all campgrounds: print title of each camp
+- each camp is also a link to its own page/id (show route) 
+
+<ul>
+    <% for(let campground of campgrounds) { %> 
+        <li> <a href="/campgrounds/<%= campground._id %>"><%= campground.title %></a>  </li>
+        <% } %> 
+    </ul> 
+-->
