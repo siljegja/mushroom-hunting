@@ -18,7 +18,7 @@ module.exports.registerUser = async (req, res) => { // register the user
         // - checks if username is unique 
         req.login(registeredUser, err => { // log user in
             if(err) return next(err);
-            req.flash('success', 'Welcome to YelpCamp');
+            req.flash('success', 'Welcome to CampSite');
             res.redirect('/campgrounds');
         })
     } catch(e) {
