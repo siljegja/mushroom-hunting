@@ -1,3 +1,11 @@
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('https://images.unsplash.com/photo-1559521783-1d1599583485?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+    background-size: cover; /* set the size of the background image */
+    background-attachment: fixed; /* set whether a background image is fixed or scrollable */
+    background-position: center; /* determines the starting position of the background image */
+}
+
 #cluster-map {
     width: 100%;
     height: 500px;
@@ -7,3 +15,4 @@
     width: 100%;
     height: 300px;
 }
+

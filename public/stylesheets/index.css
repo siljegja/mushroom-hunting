@@ -1,0 +1,67 @@
+/* import google font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+.nav-link {
+    font-weight: 500;
+    margin-left: 1rem;
+    border-bottom: 0.15rem solid transparent; /* add transparent border bottom. add hover effect below */
+}
+
+.nav-link:hover {
+    color: rgba(255, 255, 255, 0.5);
+    border-bottom-color: rgba(255, 255, 255, 0.5);
+}
+
+h5 {
+    color:rgb(124, 103, 135)
+}
+
+.section {
+    width: 100%;
+    display: flex;
+    min-height: 90vh; /* ensure it is tall enough to scroll */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.section2 {
+    flex-direction: row; /* align cards in rows */
+    flex-wrap: wrap; /* makes 2 rows with 2 cards in each row */
+}
+
+.buffer {
+    width: 100%;
+    min-height: 60vh; /* ensure it is tall enough to scroll */
+    display: flex;
+    align-items: center;
+    background-color: rgb(230, 230, 230);
+
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+
+    padding-bottom: 1rem;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+
+    background-color: white;
+    box-shadow: 0 29px 38px -5px rgb(0 0 0 / 43%);
+}
+
+img {
+    border-radius: 0.2em;
+    background-size: cover;
+}
+
+.btn-secondary, .btn-secondary:hover {
+    color: #333;
+    text-shadow: none;
+}
+

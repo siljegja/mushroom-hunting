@@ -18,12 +18,12 @@ const sample = array => array[Math.floor(Math.random() * array.length)];
 // Func adds new campgrounds
 const seedDB = async() => {
     await Campground.deleteMany({}); // delete all existing campgrounds
-    // loop 300 times, for each loop:
+    // loop 20 times, for each loop:
     // - make a new campground set to 'city, state'
     //   -> picks a rand num that selects a rand city and a rand state in cities.js
     // - add title: a rand descriptor and a rand place (from seedHelpers.js)
     //   -> passes arr descriptors and places from seedHelpers.js to sample() - returns random
-    for(let i = 0; i < 300; i++) {
+    for(let i = 0; i < 21; i++) {
         const random1000 = Math.floor(Math.random() * 1000); // .rand finds a rand num between 0-1, .floor ensures an integer
         const price = Math.floor(Math.random() * 20) + 10; 
         const camp = new Campground({
