@@ -1,31 +1,13 @@
-<!-- 
-    This boilerplate is a base layout for every single page
-    Content from the matching ejs-template will be inserted
-    for 'body'
-
-    Example: localhost3000/edit
-    will render a navbar (ect flash message below)
-    will render the content from edit.ejs inserted as 'body'
-    will render a footer  
-        navbar
-        flash
-        content from ejs
-        footer
--->
-    
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CampSite</title>
-    <!-- link to css -->
+    <title>Mushroom Hunting</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <!-- link to mapbox -->
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css' rel='stylesheet' />
-    <!-- link to css stylesheet -->
     <link rel="stylesheet" href="/stylesheets/app.css">
     
 </head>
@@ -41,12 +23,10 @@
 
     <%- include('../partials/footer') %>
 
-    <!-- link to bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" 
     crossorigin="anonymous"></script>
     
-    <!-- validate forms -->
     <script src="/javascripts/validateForms.js"></script>
 </body>
 </html>

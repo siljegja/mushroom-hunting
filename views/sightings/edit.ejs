@@ -1,0 +1,49 @@
+<% layout('layouts/boilerplate') %> 
+<link rel="stylesheet" href="/stylesheets/new.css">
+
+<div class="row"> 
+    <div class="main col-md-6 mx-auto m-5 p-3"> 
+        <h2 class="text-center m-4">Edit Sighting <%= sighting.name %></h2>
+        <form action="/sightings/<%=sighting._id%>?_method=PUT" method="POST" novalidate class="validated-form p-4" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label class="form-label fw-bold" for="title">Title</label>
+                <input class="form-control form-control-sm" type="text" id="title" name="sighting[title]" value="<%=sighting.title%>" required>  
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label fw-bold" for="location">Location</label>
+                <input class="form-control form-control-sm" type="text" id="location" name="sighting[location]" value="<%=sighting.location%>" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label fw-bold" for="description">Description</label>
+                <textarea class="form-control form-control-sm" type="text" id="description" name="sighting[description]"><%= sighting.description %></textarea>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label fw-bold">Add more images</label>
+                <input class="form-control form-control-sm" type="file" id="image" name="image" multiple>
+            </div>
+            <div class="mb-3">
+                <p><b>Choose the images you want to delete</b></p>
+                <% sighting.images.forEach(function(img, i) { %>   
+                <img src="<%= img.thumbnail %>" class="img-thumbnail" alt="">
+                <div class="form-check-inline">
+                    <input type="checkbox" id="image-<%=i%>" name="deleteImages[]" value="<%= img.filename %>">  
+                </div>
+                <label for="image-<%=i%>">Delete?</label>
+                <% }) %> 
+            </div>
+            <div class="mt-4">
+                <button class="btn btn-dark text-white">Update sighting</button>
+                <a class="btn btn-outline-secondary" href="/sightings/<%= sighting._id %>">Back to sighting</a>
+            </div>
+        </form>
+    </div> 
+</div>

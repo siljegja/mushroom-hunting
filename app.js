@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
 const methodOverride = require('method-override');
 const ExpressError = require('./utilities/ExpressError'); 
-const campgroundRoutes = require('./routes/campgrounds'); 
+const sightingRoutes = require('./routes/sightings'); 
 const reviewRoutes = require('./routes/reviews'); 
 const userRoutes = require('./routes/users'); 
 const passport = require('passport'); 
@@ -19,7 +19,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const session = require('express-session'); 
 const MongoDBStore = require('connect-mongo'); 
 
-const dbUrl = 'mongodb://localhost:27017/camp-site';
+const dbUrl = 'mongodb://localhost:27017/mushroom-hunting';
 
 mongoose.connect(dbUrl);
 
@@ -75,20 +75,15 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser()); 
 
 app.use((req, res, next) => {
-    // console.log(process.env.MAPBOX_TOKEN) 
     res.locals.currentUser = req.user;
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');
     next();
 })
 
-app.use('/campgrounds', campgroundRoutes); 
-app.use('/campgrounds/:id/reviews', reviewRoutes); 
+app.use('/sightings', sightingRoutes); 
+app.use('/sightings/:id/reviews', reviewRoutes); 
 app.use('/', userRoutes); 
-
-app.get('/', (req, res) => {
-    res.render('home')
-})
 
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page not found', 404))
